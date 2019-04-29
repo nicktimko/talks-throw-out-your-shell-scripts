@@ -1,0 +1,470 @@
+=============================================
+Top 100 Bash Questions on Stack Overflow
+=============================================
+
+Searches
+
+* `Just Bash <https://stackoverflow.com/questions/tagged/bash?sort=votes&pageSize=100>`_
+* `Complicated <https://stackoverflow.com/search?tab=votes&q=%5bbash%5d%20or%20%5bshell%5d%20and%20-%5bpython%5d%20and%20is%3aquestion>`_
+
+1-10
+======
+
+1. +4324 `Get the source directory of a Bash script from within the script itself`_
+
+    ``__file__``
+
+2. +2875 `How do I tell if a regular file does not exist in Bash?`_
+
+    Use :py:func:`os.path.exists` or :py:meth:`pathlib.Path.exists`, or just ``try`` it as it's EAFP than to LBYL.
+
+3. +2390 `How to concatenate string variables in Bash`_
+
+    Yes, this is not obvious in Bash. ``string1 + string2``.
+
+4. +2027 `How to check if a string contains a substring in Bash`_
+
+    Also tricky...in Bash. Trivial in Python: ``substring in string``.
+
+5. +1938 `In the shell, what does " 2>&1 " mean?`_
+
+    The syntax generally isn't as obscure, and to do something like switching stdout and stderr, you don't need to master crazy heiroglyphics like ``3>&1- 1>&2- 2>&3-``.
+
+6. +1902 `Echo newline in Bash prints literal \\n`_
+
+    Escaping feels inconsistent in Bash, versus in Python where there is a clear distinction between :py:func:`repr`\ sentations of strings and presentation of them via :py:func:`print()`.
+
+7. +1819 `How to check if a program exists from a Bash script?`_
+
+    Try it, or :py:func:`shutil.which`.
+
+8. +1801 `Extract filename and extension in Bash`_
+
+    :py:func:`os.path.splitext`, :py:attr:`pathlib.PurePath.name`, :py:attr:`pathlib.PurePath.suffix`
+
+9. +1692 `How do I split a string on a delimiter in Bash?`_
+
+    :py:meth:`str.split`
+
+10. +1561 `How do I parse command line arguments in Bash?`_
+
+    :py:mod:`argparse` or DIY from :py:data:`sys.argv`.
+
+
+11-20
+======
+
+11. +1414 `How to count all the lines of code in a directory recursively?`_
+
+12. +1370 `How to change the output color of echo in Linux`_
+
+    Here it's more about interacting with the terminal emulator, so you basically can do the same thing as Bash does. However, the escapes can be tricky a la the "how do I echo a newline" question above, while in Python it's much more clear. At the most basic::
+
+        print("\x1B[91mTHIS IS RED\x1B[0m")
+
+    There are also cross-platform terminal color libraries like ``colorama`` which can make life easier too.
+
+13. +1364 `How do I reload .bashrc without logging out and back in?`_
+
+
+14. +1336 `How can I redirect and append both stdout and stderr to a file with Bash?`_
+
+    When running a subprocess, you can combine the streams if you specify ``stderr=subprocess.STDOUT``.
+
+15. +1295 `How to set a variable to the output of a command in Bash?`_
+     ``[command-line]`` ``[shell]``
+
+    Yes, this is *also* non-obvious in Bash.
+
+16. +1245 `How do I prompt for Yes/No/Cancel input in a Linux shell script?`_
+
+    Read via :py:func:`input` and do whatever you want.
+
+17. +1242 `How to check if a variable is set in Bash?`_
+
+    Bash doesn't
+
+18. +1235 `How do I iterate over a range of numbers defined by variables in Bash?`_
+
+    ``for n in range(x, y, z):``
+
+19. +1202 `Loop through an array of strings in Bash?`_
+
+    ``for s in strings:``
+
+20. +1097 `Looping through the content of a file in Bash`_
+
+    ``for line in open_file:``
+
+21-30
+======
+
+21. +1061 `Check existence of input argument in a Bash shell script`_
+
+    argparse.
+
+22. +1048 `Difference between sh and bash`_
+
+    *Vaguely* similar to Python 2/3; sometimes you can pretend they're the same, but you need to know the difference when it matters.
+
+23. +1030 `How to convert a string to lower case in Bash?`_
+
+    :py:meth:`str.lower`
+
+24. +1020 `Make a Bash alias that takes a parameter?`_
+
+    A Bash alias is a canned command, you'd need to do this with a function.
+
+25. +937 `YYYY-MM-DD format date in shell script`_
+
+    The ``strftime`` specifications are the same as they're from C, and in Python you use them with :py:meth:`datetime.datetime.strftime`.
+
+26. +920 `What is the preferred Bash shebang?`_
+
+    A good question for Python as well, there's ``#!/usr/bin/env python``, or ...``python3``...
+
+27. +902 `echo that outputs to stderr`_
+
+    ::
+
+        import sys
+
+        print(..., file=sys.stderr)
+
+28. +879 `How to count lines in a document?`_
+
+    There are a few methods involving iterating over an open file and incrementing, and you can look at `other Stack Overflow questions <https://stackoverflow.com/questions/9629179/python-counting-lines-in-a-huge-10gb-file-as-fast-as-possible>`_ for more discussion. Notably, if this *is* a bottleneck, you can easily call out to ``wc``.
+
+29. +851 `How to pipe stderr, and not stdout?`_
+
+
+
+30. +845 `How to specify the private SSH-key to use when executing shell command on Git?`_
+     ``[git]`` ``[shell]`` ``[ssh]``
+
+31-40
+======
+
+31. +831 `How to escape single quotes within single quoted strings?`_
+    ``[quoting]`` ``[syntax]``
+
+32. +819 `How to reload .bash_profile from the command line?`_
+    ``[.bash-profile]`` ``[shell]``
+
+33. +818 `Setting environment variables on OS X`_
+    ``[environment-variables]`` ``[macos]`` ``[path]``
+
+34. +816 `Listing only directories using ls in bash: An examination`_
+    ``[directory]`` ``[ls]``
+
+35. +809 `Defining a variable with or without export`_
+    ``[linux]`` ``[shell]``
+
+36. +805 `How to compare strings in Bash`_
+    ``[string]``
+
+37. +800 `Passing parameters to a Bash function`_
+
+
+38. +781 `How to redirect output to a file and stdout`_
+    ``[file-io]`` ``[io]`` ``[linux]`` ``[stdout]``
+
+39. +776 `Pipe to/from the clipboard in Bash script`_
+    ``[clipboard]`` ``[linux]`` ``[macos]``
+
+40. +760 `How to iterate over arguments in a Bash script`_
+    ``[command-line]``
+
+41-50
+======
+
+41. +759 `How to trim whitespace from a Bash variable?`_
+
+    :py:meth:`str.strip`
+
+42. +755 `How to declare and use boolean variables in shell script?`_
+
+    This is non-obvious because there isn't a boolean type in shell. There are also myriad ways to get it wrong that "look" nice if you view the question.
+
+43. +749 `How can I exclude all "permission denied" messages from "find"?`_
+    ``[error-handling]`` ``[file-permissions]`` ``[find]``
+
+44. +724 `How to permanently set $PATH on Linux/Unix?`_
+    ``[linux]`` ``[path]`` ``[unix]`` ``[zsh]``
+
+45. +705 `What are the special dollar sign shell variables?`_
+
+    Python has a cleaner return semantics from calls, so it doesn't need magic variables like ``$?``. That said, Python has ``_`` which can be useful in *interactive* contexts.
+
+46. +698 `Get current directory name (without full path) in a Bash script`_
+    ``[shell]``
+
+47. +682 `Given two directory trees, how can I find out which files differ?`_
+    ``[diff]`` ``[linux]`` ``[shell]`` ``[unix]``
+
+48. +681 `Parsing JSON with Unix tools`_
+
+    :py:mod:`json`
+
+49. +672 `Redirect all output to file`_
+    ``[io-redirection]`` ``[linux]``
+
+50. +665 `Propagate all arguments in a bash shell script`_
+    ``[command-line-arguments]``
+
+51-60
+======
+
+51. +646 `Add a new element to an array without specifying the index in Bash`_
+    ``[arrays]``
+
+52. +640 `How do I clear/delete the current line in terminal?`_
+    ``[terminal]``
+
+53. +638 `Count number of lines in a git repository`_
+    ``[git]`` ``[line-count]`` ``[shell]``
+
+54. +633 `Read a file line by line assigning the value to a variable`_
+
+
+55. +630 `How to 'grep' a continuous stream?`_
+    ``[grep]`` ``[linux]`` ``[shell]`` ``[tail]``
+
+56. +628 `How can I write a heredoc to a file in Bash script?`_
+    ``[heredoc]``
+
+57. +620 `How do I remove all .pyc files from a project?`_
+
+
+58. +610 `Add line break to 'git commit -m' from the command line`_
+    ``[git]`` ``[shell]``
+
+59. +604 `How to use double or single brackets, parentheses, curly braces`_
+    ``[syntax]``
+
+60. +600 `Redirect stderr and stdout in Bash`_
+    ``[pipe]`` ``[redirect]`` ``[shell]``
+
+61. +595 `In bash, how can I check if a string begins with some value?`_
+    ``[comparison]`` ``[string]``
+
+62. +592 `Extract substring in Bash`_
+    ``[shell]`` ``[string]`` ``[substring]``
+
+63. +588 `How to do a recursive find/replace of a string with awk or sed?`_
+    ``[awk]`` ``[replace]`` ``[sed]``
+
+64. +584 `Check number of arguments passed to a Bash script`_
+    ``[parameter-passing]``
+
+65. +579 `Replace one substring for another string in shell script`_
+    ``[shell]``
+
+66. +579 `Reliable way for a Bash script to get the full path to itself`_
+    ``[path]``
+
+67. +577 `How to call shell script from another shell script?`_
+    ``[shell]``
+
+68. +559 `Check if pull needed in Git`_
+    ``[git]`` ``[shell]``
+
+69. +551 `In a Bash script, how can I exit the entire script if a certain condition occurs?`_
+    ``[exit]`` ``[exit-code]`` ``[scripting]``
+
+70. +545 `Find and kill a process in one line using bash and regex`_
+    ``[awk]`` ``[regex]`` ``[terminal]``
+
+71. +542 `How do I pause my shell script for a second before continuing?`_
+    ``[shell]`` ``[terminal]`` ``[unix]``
+
+72. +538 `Syntax for a single-line Bash infinite while loop`_
+    ``[loops]`` ``[while-loop]``
+
+73. +537 `How to determine the current shell I'm working on?`_
+    ``[csh]`` ``[shell]`` ``[tcsh]`` ``[unix]``
+
+74. +536 `When do we need curly braces around shell variables?`_
+    ``[curly-braces]`` ``[shell]`` ``[syntax]``
+
+75. +536 `Why is whitespace sometimes needed around metacharacters?`_
+    ``[shell]`` ``[syntax]`` ``[syntax-error]``
+
+76. +522 `How do I compare two string variables in an 'if' statement in Bash?`_
+    ``[if-statement]`` ``[scripting]``
+
+77. +519 `How to do a logical OR operation in Shell Scripting`_
+    ``[if-statement]`` ``[sh]`` ``[unix]``
+
+78. +517 `What does set -e mean in a bash script?`_
+    ``[linux]`` ``[sh]`` ``[shell]``
+
+79. +514 `sudo echo "something" >> /etc/privilegedFile doesn't work`_
+    ``[permissions]`` ``[scripting]`` ``[shell]`` ``[sudo]``
+
+80. +513 `Assigning default values to shell variables with a single command in bash`_
+    ``[shell]``
+
+81. +511 `Automatic exit from bash shell script on error`_
+    ``[exit]`` ``[shell]``
+
+82. +507 `Split string into an array in Bash`_
+    ``[arrays]`` ``[split]``
+
+83. +503 `How do I know the script file name in a Bash script?`_
+    ``[linux]`` ``[scripting]`` ``[shell]``
+
+84. +503 `How do I prompt a user for confirmation in bash script?`_
+
+
+85. +499 `Get current time in seconds since the Epoch on Linux, Bash`_
+    ``[datetime]`` ``[linux]``
+
+86. +497 `Capturing multiple line output into a Bash variable`_
+    ``[variables]``
+
+87. +495 `How do I test if a variable is a number in Bash?`_
+    ``[linux]`` ``[shell]``
+
+88. +490 `How to kill all processes with a given partial name?`_
+    ``[linux]`` ``[posix]``
+
+89. +485 `How to run a shell script on a Unix console or Mac terminal?`_
+    ``[linux]`` ``[macos]`` ``[shell]`` ``[unix]``
+
+90. +482 `How does "cat << EOF" work in bash?`_
+    ``[heredoc]`` ``[linux]`` ``[scripting]``
+
+91. +480 `How do I get cURL to not show the progress bar?`_
+    ``[curl]`` ``[linux]`` ``[scripting]`` ``[unix]``
+
+92. +470 `How to pass all arguments passed to my bash script to a function of mine?`_
+    ``[function]`` ``[parameter-passing]``
+
+93. +468 `Bash tool to get nth line from a file`_
+    ``[awk]`` ``[sed]`` ``[shell]`` ``[unix]``
+
+94. +464 `How to wait in bash for several subprocesses to finish and return exit code !=0 when any subprocess ends with code !=0?`_
+    ``[process]`` ``[wait]``
+
+95. +464 `What's a concise way to check that environment variables are set in a Unix shell script?`_
+    ``[shell]`` ``[unix]``
+
+96. +463 `How do I write stderr to a file while using "tee" with a pipe?`_
+    ``[linux]`` ``[unix]``
+
+97. +460 `How can I add numbers in a bash script`_
+    ``[mathematical-expressions]``
+
+98. +459 `How can I remove the first line of a text file using bash/sed script?`_
+    ``[scripting]`` ``[sed]``
+
+99. +457 `Find and Replace Inside a Text File from a Bash Command`_
+    ``[ironpython]`` ``[replace]`` ``[scripting]`` ``[ssh]``
+
+100. +455 `How to define hash tables in Bash?`_
+    ``[associative-array]`` ``[dictionary]`` ``[hashtable]``
+
+
+
+
+.. _Get the source directory of a Bash script from within the script itself: https://stackoverflow.com/questions/59895/get-the-source-directory-of-a-bash-script-from-within-the-script-itself
+.. _How do I tell if a regular file does not exist in Bash?: https://stackoverflow.com/questions/638975/how-do-i-tell-if-a-regular-file-does-not-exist-in-bash
+.. _How to concatenate string variables in Bash: https://stackoverflow.com/questions/4181703/how-to-concatenate-string-variables-in-bash
+.. _How to check if a string contains a substring in Bash: https://stackoverflow.com/questions/229551/how-to-check-if-a-string-contains-a-substring-in-bash
+.. _In the shell, what does " 2>&1 " mean?: https://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean
+.. _Echo newline in Bash prints literal \n: https://stackoverflow.com/questions/8467424/echo-newline-in-bash-prints-literal-n
+.. _How to check if a program exists from a Bash script?: https://stackoverflow.com/questions/592620/how-to-check-if-a-program-exists-from-a-bash-script
+.. _Extract filename and extension in Bash: https://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash
+.. _How do I split a string on a delimiter in Bash?: https://stackoverflow.com/questions/918886/how-do-i-split-a-string-on-a-delimiter-in-bash
+.. _How do I parse command line arguments in Bash?: https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
+.. _How to count all the lines of code in a directory recursively?: https://stackoverflow.com/questions/1358540/how-to-count-all-the-lines-of-code-in-a-directory-recursively
+.. _How to change the output color of echo in Linux: https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
+.. _How do I reload .bashrc without logging out and back in?: https://stackoverflow.com/questions/2518127/how-do-i-reload-bashrc-without-logging-out-and-back-in
+.. _How can I redirect and append both stdout and stderr to a file with Bash?: https://stackoverflow.com/questions/876239/how-can-i-redirect-and-append-both-stdout-and-stderr-to-a-file-with-bash
+.. _How to set a variable to the output of a command in Bash?: https://stackoverflow.com/questions/4651437/how-to-set-a-variable-to-the-output-of-a-command-in-bash
+.. _How do I prompt for Yes/No/Cancel input in a Linux shell script?: https://stackoverflow.com/questions/226703/how-do-i-prompt-for-yes-no-cancel-input-in-a-linux-shell-script
+.. _How to check if a variable is set in Bash?: https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash
+.. _How do I iterate over a range of numbers defined by variables in Bash?: https://stackoverflow.com/questions/169511/how-do-i-iterate-over-a-range-of-numbers-defined-by-variables-in-bash
+.. _Loop through an array of strings in Bash?: https://stackoverflow.com/questions/8880603/loop-through-an-array-of-strings-in-bash
+.. _Looping through the content of a file in Bash: https://stackoverflow.com/questions/1521462/looping-through-the-content-of-a-file-in-bash
+.. _Check existence of input argument in a Bash shell script: https://stackoverflow.com/questions/6482377/check-existence-of-input-argument-in-a-bash-shell-script
+.. _Difference between sh and bash: https://stackoverflow.com/questions/5725296/difference-between-sh-and-bash
+.. _How to convert a string to lower case in Bash?: https://stackoverflow.com/questions/2264428/how-to-convert-a-string-to-lower-case-in-bash
+.. _Make a Bash alias that takes a parameter?: https://stackoverflow.com/questions/7131670/make-a-bash-alias-that-takes-a-parameter
+.. _YYYY-MM-DD format date in shell script: https://stackoverflow.com/questions/1401482/yyyy-mm-dd-format-date-in-shell-script
+.. _What is the preferred Bash shebang?: https://stackoverflow.com/questions/10376206/what-is-the-preferred-bash-shebang
+.. _echo that outputs to stderr: https://stackoverflow.com/questions/2990414/echo-that-outputs-to-stderr
+.. _How to count lines in a document?: https://stackoverflow.com/questions/3137094/how-to-count-lines-in-a-document
+.. _How to pipe stderr, and not stdout?: https://stackoverflow.com/questions/2342826/how-to-pipe-stderr-and-not-stdout
+.. _How to specify the private SSH-key to use when executing shell command on Git?: https://stackoverflow.com/questions/4565700/how-to-specify-the-private-ssh-key-to-use-when-executing-shell-command-on-git
+.. _How to escape single quotes within single quoted strings?: https://stackoverflow.com/questions/1250079/how-to-escape-single-quotes-within-single-quoted-strings
+.. _How to reload .bash_profile from the command line?: https://stackoverflow.com/questions/4608187/how-to-reload-bash-profile-from-the-command-line
+.. _Setting environment variables on OS X: https://stackoverflow.com/questions/135688/setting-environment-variables-on-os-x
+.. _Listing only directories using ls in bash: An examination: https://stackoverflow.com/questions/14352290/listing-only-directories-using-ls-in-bash-an-examination
+.. _Defining a variable with or without export: https://stackoverflow.com/questions/1158091/defining-a-variable-with-or-without-export
+.. _How to compare strings in Bash: https://stackoverflow.com/questions/2237080/how-to-compare-strings-in-bash
+.. _Passing parameters to a Bash function: https://stackoverflow.com/questions/6212219/passing-parameters-to-a-bash-function
+.. _How to redirect output to a file and stdout: https://stackoverflow.com/questions/418896/how-to-redirect-output-to-a-file-and-stdout
+.. _Pipe to/from the clipboard in Bash script: https://stackoverflow.com/questions/749544/pipe-to-from-the-clipboard-in-bash-script
+.. _How to iterate over arguments in a Bash script: https://stackoverflow.com/questions/255898/how-to-iterate-over-arguments-in-a-bash-script
+.. _How to trim whitespace from a Bash variable?: https://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable
+.. _How to declare and use boolean variables in shell script?: https://stackoverflow.com/questions/2953646/how-to-declare-and-use-boolean-variables-in-shell-script
+.. _How can I exclude all "permission denied" messages from "find"?: https://stackoverflow.com/questions/762348/how-can-i-exclude-all-permission-denied-messages-from-find
+.. _How to permanently set $PATH on Linux/Unix?: https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix
+.. _What are the special dollar sign shell variables?: https://stackoverflow.com/questions/5163144/what-are-the-special-dollar-sign-shell-variables
+.. _Get current directory name (without full path) in a Bash script: https://stackoverflow.com/questions/1371261/get-current-directory-name-without-full-path-in-a-bash-script
+.. _Given two directory trees, how can I find out which files differ?: https://stackoverflow.com/questions/4997693/given-two-directory-trees-how-can-i-find-out-which-files-differ
+.. _Parsing JSON with Unix tools: https://stackoverflow.com/questions/1955505/parsing-json-with-unix-tools
+.. _Redirect all output to file: https://stackoverflow.com/questions/6674327/redirect-all-output-to-file
+.. _Propagate all arguments in a bash shell script: https://stackoverflow.com/questions/4824590/propagate-all-arguments-in-a-bash-shell-script
+.. _Add a new element to an array without specifying the index in Bash: https://stackoverflow.com/questions/1951506/add-a-new-element-to-an-array-without-specifying-the-index-in-bash
+.. _How do I clear/delete the current line in terminal?: https://stackoverflow.com/questions/9679776/how-do-i-clear-delete-the-current-line-in-terminal
+.. _Count number of lines in a git repository: https://stackoverflow.com/questions/4822471/count-number-of-lines-in-a-git-repository
+.. _Read a file line by line assigning the value to a variable: https://stackoverflow.com/questions/10929453/read-a-file-line-by-line-assigning-the-value-to-a-variable
+.. _How to 'grep' a continuous stream?: https://stackoverflow.com/questions/7161821/how-to-grep-a-continuous-stream
+.. _How can I write a heredoc to a file in Bash script?: https://stackoverflow.com/questions/2953081/how-can-i-write-a-heredoc-to-a-file-in-bash-script
+.. _How do I remove all .pyc files from a project?: https://stackoverflow.com/questions/785519/how-do-i-remove-all-pyc-files-from-a-project
+.. _Add line break to 'git commit -m' from the command line: https://stackoverflow.com/questions/5064563/add-line-break-to-git-commit-m-from-the-command-line
+.. _How to use double or single brackets, parentheses, curly braces: https://stackoverflow.com/questions/2188199/how-to-use-double-or-single-brackets-parentheses-curly-braces
+.. _Redirect stderr and stdout in Bash: https://stackoverflow.com/questions/637827/redirect-stderr-and-stdout-in-bash
+.. _In bash, how can I check if a string begins with some value?: https://stackoverflow.com/questions/2172352/in-bash-how-can-i-check-if-a-string-begins-with-some-value
+.. _Extract substring in Bash: https://stackoverflow.com/questions/428109/extract-substring-in-bash
+.. _How to do a recursive find/replace of a string with awk or sed?: https://stackoverflow.com/questions/1583219/how-to-do-a-recursive-find-replace-of-a-string-with-awk-or-sed
+.. _Check number of arguments passed to a Bash script: https://stackoverflow.com/questions/18568706/check-number-of-arguments-passed-to-a-bash-script
+.. _Replace one substring for another string in shell script: https://stackoverflow.com/questions/13210880/replace-one-substring-for-another-string-in-shell-script
+.. _Reliable way for a Bash script to get the full path to itself: https://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
+.. _How to call shell script from another shell script?: https://stackoverflow.com/questions/8352851/how-to-call-shell-script-from-another-shell-script
+.. _Check if pull needed in Git: https://stackoverflow.com/questions/3258243/check-if-pull-needed-in-git
+.. _In a Bash script, how can I exit the entire script if a certain condition occurs?: https://stackoverflow.com/questions/1378274/in-a-bash-script-how-can-i-exit-the-entire-script-if-a-certain-condition-occurs
+.. _Find and kill a process in one line using bash and regex: https://stackoverflow.com/questions/3510673/find-and-kill-a-process-in-one-line-using-bash-and-regex
+.. _How do I pause my shell script for a second before continuing?: https://stackoverflow.com/questions/21620406/how-do-i-pause-my-shell-script-for-a-second-before-continuing
+.. _Syntax for a single-line Bash infinite while loop: https://stackoverflow.com/questions/1289026/syntax-for-a-single-line-bash-infinite-while-loop
+.. _How to determine the current shell I'm working on?: https://stackoverflow.com/questions/3327013/how-to-determine-the-current-shell-im-working-on
+.. _When do we need curly braces around shell variables?: https://stackoverflow.com/questions/8748831/when-do-we-need-curly-braces-around-shell-variables
+.. _Why is whitespace sometimes needed around metacharacters?: https://stackoverflow.com/questions/21186724/why-is-whitespace-sometimes-needed-around-metacharacters
+.. _How do I compare two string variables in an 'if' statement in Bash?: https://stackoverflow.com/questions/4277665/how-do-i-compare-two-string-variables-in-an-if-statement-in-bash
+.. _How to do a logical OR operation in Shell Scripting: https://stackoverflow.com/questions/4111475/how-to-do-a-logical-or-operation-in-shell-scripting
+.. _What does set -e mean in a bash script?: https://stackoverflow.com/questions/19622198/what-does-set-e-mean-in-a-bash-script
+.. _sudo echo "something" >> /etc/privilegedFile doesn't work: https://stackoverflow.com/questions/84882/sudo-echo-something-etc-privilegedfile-doesnt-work
+.. _Assigning default values to shell variables with a single command in bash: https://stackoverflow.com/questions/2013547/assigning-default-values-to-shell-variables-with-a-single-command-in-bash
+.. _Automatic exit from bash shell script on error: https://stackoverflow.com/questions/2870992/automatic-exit-from-bash-shell-script-on-error
+.. _Split string into an array in Bash: https://stackoverflow.com/questions/10586153/split-string-into-an-array-in-bash
+.. _How do I know the script file name in a Bash script?: https://stackoverflow.com/questions/192319/how-do-i-know-the-script-file-name-in-a-bash-script
+.. _How do I prompt a user for confirmation in bash script?: https://stackoverflow.com/questions/1885525/how-do-i-prompt-a-user-for-confirmation-in-bash-script
+.. _Get current time in seconds since the Epoch on Linux, Bash: https://stackoverflow.com/questions/1092631/get-current-time-in-seconds-since-the-epoch-on-linux-bash
+.. _Capturing multiple line output into a Bash variable: https://stackoverflow.com/questions/613572/capturing-multiple-line-output-into-a-bash-variable
+.. _How do I test if a variable is a number in Bash?: https://stackoverflow.com/questions/806906/how-do-i-test-if-a-variable-is-a-number-in-bash
+.. _How to kill all processes with a given partial name?: https://stackoverflow.com/questions/8987037/how-to-kill-all-processes-with-a-given-partial-name
+.. _How to run a shell script on a Unix console or Mac terminal?: https://stackoverflow.com/questions/733824/how-to-run-a-shell-script-on-a-unix-console-or-mac-terminal
+.. _How does "cat << EOF" work in bash?: https://stackoverflow.com/questions/2500436/how-does-cat-eof-work-in-bash
+.. _How do I get cURL to not show the progress bar?: https://stackoverflow.com/questions/7373752/how-do-i-get-curl-to-not-show-the-progress-bar
+.. _How to pass all arguments passed to my bash script to a function of mine?: https://stackoverflow.com/questions/3811345/how-to-pass-all-arguments-passed-to-my-bash-script-to-a-function-of-mine
+.. _Bash tool to get nth line from a file: https://stackoverflow.com/questions/6022384/bash-tool-to-get-nth-line-from-a-file
+.. _How to wait in bash for several subprocesses to finish and return exit code !=0 when any subprocess ends with code !=0?: https://stackoverflow.com/questions/356100/how-to-wait-in-bash-for-several-subprocesses-to-finish-and-return-exit-code-0
+.. _What's a concise way to check that environment variables are set in a Unix shell script?: https://stackoverflow.com/questions/307503/whats-a-concise-way-to-check-that-environment-variables-are-set-in-a-unix-shell
+.. _How do I write stderr to a file while using "tee" with a pipe?: https://stackoverflow.com/questions/692000/how-do-i-write-stderr-to-a-file-while-using-tee-with-a-pipe
+.. _How can I add numbers in a bash script: https://stackoverflow.com/questions/6348902/how-can-i-add-numbers-in-a-bash-script
+.. _How can I remove the first line of a text file using bash/sed script?: https://stackoverflow.com/questions/339483/how-can-i-remove-the-first-line-of-a-text-file-using-bash-sed-script
+.. _Find and Replace Inside a Text File from a Bash Command: https://stackoverflow.com/questions/525592/find-and-replace-inside-a-text-file-from-a-bash-command
+.. _How to define hash tables in Bash?: https://stackoverflow.com/questions/1494178/how-to-define-hash-tables-in-bash
