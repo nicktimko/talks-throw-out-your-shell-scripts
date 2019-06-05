@@ -13,6 +13,8 @@ TOSS: Throw Out (Your) Shell Scripts
     so100
     packages
 
+The Competitors
+=========================
 
 Bash: The Language
 ----------------------
@@ -25,11 +27,24 @@ Shell weaknesses: types, logic, syntax
 If you need to pipe Where needed, you can stitch together multiple
 
 
-Three Uses:
+PowerShell
+-------------------
+Has types, interactive help, all-in-all pretty nice. Only available on Windows.
 
-* Wholesale replacement of scripts
+
+Primary Uses
+==================
+
+* Wholesale replacement of scripts. The scripts may be direct shell scripts or Makefiles. Common script usage:
+    * Tie together multiple executables
+    * Perform a bunch of file/path manipulations
+
 * Wrapping a confusing/awful interface to another program
     * ``os.exec*`` functions if you want to just do something at the start
+    * The program may also be ordinarily fine, but say you wanted to run it several times with different parameters, or save a set of parameters as a default.
+
+The standard library packages in Python that can replicate much of the basic functionality that shell scripts generally provide are the ``os``, ``pathlib``, ``shutil``, and ``subprocess`` packages.
+
 
 
 
