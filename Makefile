@@ -19,4 +19,5 @@ help:
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 livehtml:
-	sphinx-autobuild -p9876 -b html $(SPHINXOPTS) $(O) "$(SOURCEDIR)" $(BUILDDIR)/html
+	sphinx-autobuild --port 9876 --ignore ".git/*" \
+		-b html $(SPHINXOPTS) $(O) "$(SOURCEDIR)" $(BUILDDIR)/html

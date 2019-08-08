@@ -1,0 +1,7 @@
+#!/bin/sh
+# this could be a binary or something else we can't/don't want to modify
+set -o nounset
+set -o errexit
+
+echo "The booflark is set to ${WIZ_VAL}."
+echo "The $2 $4 jumps over the moon."

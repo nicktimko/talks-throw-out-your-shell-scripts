@@ -12,7 +12,17 @@ Searches
 
 1. +4324 `Get the source directory of a Bash script from within the script itself`_
 
-    ``__file__``
+    ``__file__`` is the file itself, so to get the parent:
+
+    .. code-block:: python
+
+        # fully resolved
+        pathlib.Path(__file__).parent
+        os.path.abspath(os.path.join(__file__, os.path.pardir))
+
+        # may still be relative
+        pathlib.Path(__file__).parent.resolve()
+        os.path.normpath(os.path.join(__file__, os.path.pardir))
 
 2. +2875 `How do I tell if a regular file does not exist in Bash?`_
 

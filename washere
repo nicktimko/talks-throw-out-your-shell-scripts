@@ -1,0 +1,4 @@
+#!/bin/sh
+echo "Who are you?:"
+read name
+touch ${name}_was_here

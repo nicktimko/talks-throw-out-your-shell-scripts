@@ -24,7 +24,9 @@ One base type: character strings. Arrays available, but as Unix commands are all
 Shell strengths: process forking, stream management
 Shell weaknesses: types, logic, syntax
 
-If you need to pipe Where needed, you can stitch together multiple
+If you need to pipe...
+
+Where needed, you can stitch together multiple processes...
 
 
 PowerShell
