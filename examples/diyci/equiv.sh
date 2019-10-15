@@ -12,9 +12,11 @@ echo "linting..."
 (
     rc=0;
     pylint ${TARGET} || rc=$?;
-    exit $(($rc & 35 )) # fatal=1 | error=2 | usage error=32
+    exit $(( $rc & 35 )) # fatal=1 | error=2 | usage error=32
 )
 
 echo "eh, good enough."
 
 black --check ${TARGET}
+
+echo "SUCCESS"

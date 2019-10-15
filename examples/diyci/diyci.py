@@ -13,9 +13,11 @@ def main():
     proc = subprocess.run(["python3", "-m", "pylint", target])
 
     # Pylint exit codes: 1=fatal, 2=error, 4=warning, 32=usage error
-    if proc.returncode & (1 | 2 | 4 | 32):
+    if proc.returncode & (1 | 2 | 32):
         print("pylint found an error", file=sys.stderr)
         return 1
+
+    print("success")
 
 
 if __name__ == "__main__":

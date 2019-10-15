@@ -12,3 +12,5 @@ pylint ${TARGET}
 echo "eh, good enough."
 
 black --check ${TARGET}
+
+echo "SUCCESS"

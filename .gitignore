@@ -2,3 +2,4 @@ _build/
 *.py[cod]
 __pycache__/
 Untitled*.ipynb
+.nox/

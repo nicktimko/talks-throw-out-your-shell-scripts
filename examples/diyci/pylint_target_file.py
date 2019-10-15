@@ -2,10 +2,10 @@
 """
 Menegerie of problems for PyLint.
 """
-# import colorsys  # unused (warning)
+import colorsys  # unused (warning)
 
 
-def my_func(x):
+def my_func():
     print(x)  # name error
 
 

@@ -9,7 +9,7 @@ def main():
         tf.seek(0)
 
         # let the user use a real text editor
-        proc = subprocess.run(["vi", tf.name])
+        proc = subprocess.run(["vim", tf.name])
 
         for line in tf:
             if line.lstrip().startswith("#"):

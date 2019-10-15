@@ -15,6 +15,7 @@ class PyLintExitCode(enum.IntFlag):
 
 TARGET = "pylint_target_file.py"
 
+
 @task
 def check(c):
     result = c.run(f"pylint {TARGET}", warn=True)
